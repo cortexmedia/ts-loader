@@ -435,6 +435,24 @@ Does not compute.... code: 2307,severity: error,content: Cannot find module 'com
 
 And the bit after "Does not compute.... " would be red.
 
+**Advanced Usage**
+
+The `error` parameter exposes an instance of TypeScript's [`Diagnostic` class](http://definitelytyped.org/docs/typescript-services--typescriptServices/classes/typescript.diagnostic.html). It contains additional details about the error and makes it easy to use TypeScript's builtin error formatters, like `formatDiagnosticsWithColorAndContext`:
+
+```javascript
+const os = require("os");
+const path = require("path");
+const ts = require("typescript");
+
+function customErrorFormatter(error, colors) {
+  return ts.formatDiagnosticsWithColorAndContext([error.diagnostic], {
+    getCurrentDirectory: () => __dirname,
+    getCanonicalFileName: fileName => path.normalize(fileName),
+    getNewLine: () => os.EOL
+  });
+}
+```
+
 #### compilerOptions _(object) (default={})_
 
 Allows overriding TypeScript options. Should be specified in the same format

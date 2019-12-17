@@ -1,5 +1,8 @@
 # Changelog
 
+## v6.3.0
+* [Exposes the typescript diagnostic object to custom error formatter functions](https://github.com/TypeStrong/ts-loader/pull/996) - thanks @srgpqt
+
 ## v6.2.1
 * [Output types alongside JS files, enable declaration maps](https://github.com/TypeStrong/ts-loader/pull/1026) - thanks @meyer!
 
